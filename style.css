@@ -1,0 +1,129 @@
+/*Ovo je klasa od naslova na home-pageu*/
+.mb-5{
+	font-size: 50px;
+	font-weight: bold;
+}
+/*h5 su naslovi u karticama za apartmane*/
+h5{
+	font-weight:bold;
+}
+
+header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+}
+header.masthead {
+    position: relative;
+    background-color: #343a40;
+    background-size: cover;
+    padding-top: 30rem;
+    padding-bottom: 30rem;
+}
+.text-white {
+    color: #fff !important;
+}
+.text-center {
+    text-align: center !important;
+}
+
+.footer {
+   position: bottom;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+
+/* Facebook */
+footer.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Instagram */
+footer.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+
+/*OVDJE IDE SVE ZA APARTMANI MREŽU FOTOGRAFIJA*/
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/*ZA KARTICE*/
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.container{
+	margin-top= 8%;
+}
+
+/*hover za slike na karticama*/
+
+.inner{
+	overflow: hidden; /*ostaje slika u granicama grida*/
+}
+
+.inner img{
+	transition: all 1.5s ease; /*toliko traje efekt*/
+}
+
+.inner:hover img{
+	transform: scale(1.5); /*zoom in*/
+}
+
+
