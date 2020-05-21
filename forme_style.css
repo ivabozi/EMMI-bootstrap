@@ -1,0 +1,40 @@
+/*fome za registraciju, prijavu i rezervaciju*/
+
+body{
+	background-image: url('pozadina.jpg');
+	background-repeat: no;
+	background-size: cover;
+	background-attachment: fixed; /*kada se scrola po stranici, slika ostaje na mjestu*/
+}
+
+h3{
+	color:black;
+}
+
+
+.col-md-5{
+	margin-top:150px;
+	margin-left:500px;
+	background-color: rgb(255,255,255,0.7);/*255 je bijela boja a 0.7 je prozirnost (1 mi je da nema prozirnosti, sve niže je prozirno)*/
+}
+
+.label{ /*tu su mi ime, prezime...*/
+	color: black;
+	margin-top: 10px;
+	font-size: 15px;
+}
+
+.col-md-8{
+	margin-bottom: 15px;
+}
+
+.btn-info{
+	margin-left: 300px;
+	margin-top: 20px;  /**ovdje spuštam gumbice- prosirujem njegov prostor gore*/
+	margin-bottom: 20px;  /*prosirujem njegov prostor na dole*/
+	background-color: #4682B4;
+}
+
+.btn-warning{
+	background-color: #FF6347;
+}
