@@ -11,3 +11,10 @@ onda se može samo prijaviti. Nakon prijave, ispunjava rezervacijsku formu i kli
 Aplikacija je rađena u bootstrap-u (verzija 3) - front end
 php - back end
 phpMyAdmin - baza podataka 
+
+bootstrap tj. front-end može se pokrenuti na svim novijim verzijama (kao npr. bootstrap 4.0v) uz male promjene (https://getbootstrap.com/docs/4.0/migration/). 
+
+php - back-end trebao bi moći funkcionirati na bilo kojem računalu (potrebno je voditi računa o podacima za konekciju na bazu i nazivima
+podataka u bazi).
+
+Kod može biti (do)rađen u VS code-u ili Notepad-u++
