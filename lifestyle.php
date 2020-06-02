@@ -1,3 +1,4 @@
+<?php include('server.php') ?>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
       <li ><a href="index.html">Home</a></li>
       <li ><a href="apartmani.html">Apartmani</a></li>
       <li class="active"><a href="#">Lifestyle</a></li>
-	  <li><a href="rezervacija.php">Rezervacija</a></li>
+	  <li><a href="kalendar.php">Rezervacija</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="registracija.php"><span class="glyphicon glyphicon-user"></span> Registracija</a></li>
@@ -45,23 +46,23 @@
 
 
   <!-- Galerijica  -->
-<div class="col-md-4">
+
   		<?php 	 
 				
-					$objekt_query="SELECT * FROM objekt";
-					$lokacija_query="SELECT * FROM lokacija";
+					$objekt_query="SELECT * FROM objekt WHERE id_lokacije=2";
 
 					$run_result_1 = mysqli_query($db,$objekt_query);
-					$run_result_2 = mysqli_query($db,$lokacija_query);
 				
 					while($row_result=mysqli_fetch_array($run_result_1, MYSQLI_ASSOC)){
 					
 						$naziv_objekta=$row_result['Naziv_objekta'];
 						$opis=$row_result['Opis'];
 						$slike=$row_result['Slike_objekta'];
+						$link=$row_result['link'];
 						
 
 						echo "
+						<div class='col-md-4'>
 							 <div class='card shadow' style='width: 28rem;'>
 							   <div class='inner'>
 							   <img class='card-img-top' src='$slike'>
@@ -69,15 +70,15 @@
 							  <div class='card-body text-center'>
 								<h5 class='card-title'>$naziv_objekta</h5>
 								<p class='card-text'>$opis</p>
-								<a href='https://www.facebook.com/butlergourmetgarden/' class='btn btn-primary'>Pogledaj odmah...</a>
+								<a href='$link' class='btn btn-primary'>Pogledaj odmah...</a>
 								</br>
 								</br>
 							 </div>
 							</div>
+							</div>
 							";
 					}
 				?>
-</div>
 
 </div>
 </div>
@@ -90,59 +91,48 @@
  </br>
   
   
- <div class="container">
+ <!-- OVDJE KRECU RESTORANI ZADAR-->
+<div class="container">
 <div class="row justify-content-center">
-<div class="col-md-4">
-   <div class="card shadow" style="width: 28rem;">
-   <div class="inner">
-    <img class="card-img-top" src="peperoni.jpg" alt="Peperoni">
-   </div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Pizzeria Peperoni</h5>
-    <p class="card-text">Kamena kuća iz 1904.godine renovirana je u autohtonu Trattoriu Peperoni. Osim ukusne hrane, uživajte u pogledu na stari grad i doživite povijest ovoga mjesta.</p>
-    <a href="https://www.peperoni-nin.com/hr/pizzeria-peperoni-nin" class="btn btn-primary">Pogledaj odmah...</a>
-	</br>
-    </br>
-  </div>
-</div>
-</div>
-
-  <!-- Galerijica gostiju -->
-<div class="col-md-4">
-   <div class="card shadow" style="width: 28rem;">
-   <div class="inner">
-   <img class="card-img-top" src="madduck.jpg" alt="MadDuck">
-   </div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Mad Duck - Buger & Pizza Bar</h5>
-    <p class="card-text">Burger & Pizza Bar Mad Duck izvrsno je mjesto za mlade, hrana mami svojim privlačnim izgledom, brzo je spremljena, ukusna je, možete ju ponjeti sa sobom ili pak uživati na barskim stolicama! </p>
-    <a href="https://www.facebook.com/madducknin/" class="btn btn-primary">Pogledaj odmah...</a>
-	</br>
-    </br>
- </div>
-</div>
-</div>
 
 
-<div class="col-md-4">
-   <div class="card shadow" style="width: 28rem;">
-   <div class="inner">
-   <img class="card-img-top" src="sentimenti.jpg" alt="Sentimenti">
-   </div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Konoba Sentimenti</h5>
-    <p class="card-text">Konoba sentimenti osim što ima prekrasan autohtoni interijer i eksterijer, nudi i pravu domaću spizu, probajte carpaccio od hobotnice, dagnje na buzaru ili pak brujet! </p>
-    <a href="https://www.facebook.com/pg/konobasentimenti/posts/" class="btn btn-primary">Pogledaj odmah...</a>
-	</br>
-    </br>
-  </div>
-</div>
-</div>
+  <!-- Galerijica  -->
+
+  		<?php 	 
+				
+					$objekt_query="SELECT * FROM objekt WHERE id_lokacije=1";
+
+					$run_result_1 = mysqli_query($db,$objekt_query);
+				
+					while($row_result=mysqli_fetch_array($run_result_1, MYSQLI_ASSOC)){
+					
+						$naziv_objekta=$row_result['Naziv_objekta'];
+						$opis=$row_result['Opis'];
+						$slike=$row_result['Slike_objekta'];
+						$link=$row_result['link'];
+						
+
+						echo "
+						<div class='col-md-4'>
+							 <div class='card shadow' style='width: 28rem;'>
+							   <div class='inner'>
+							   <img class='card-img-top' src='$slike'>
+							   </div>
+							  <div class='card-body text-center'>
+								<h5 class='card-title'>$naziv_objekta</h5>
+								<p class='card-text'>$opis</p>
+								<a href='$link' class='btn btn-primary'>Pogledaj odmah...</a>
+								</br>
+								</br>
+							 </div>
+							</div>
+							</div>
+							";
+					}
+				?>
 
 </div>
 </div>
-
- 
 
 
 

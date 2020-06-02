@@ -1,3 +1,4 @@
+<?php include('server.php') ?>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,52 +45,41 @@
 
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-md-4">
-   <div class="card shadow" style="width: 28rem;">
-   <div class="inner">
-    <img class="card-img-top" src="soba1.jpg" alt="Apartman 1">
-   </div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Apartman ENA</h5>
-    <p class="card-text">ENA apartman pruža pogled na morsku stranu mjesta Vrsi. Dvosoban je, prostran, s prostranom kupaonicom i malenom terasom na kojoj će te uživati piti jutarnje kave!.</p>
-    <a href="#" class="btn btn-primary">Rezerviraj odmah...</a>
-	</br>
-    </br>
-  </div>
-</div>
-</div>
 
-  <!-- Galerijica apartmana -->
-<div class="col-md-4">
-   <div class="card shadow" style="width: 28rem;">
-   <div class="inner">
-   <img class="card-img-top" src="soba2.jpg" alt="Apartman 2">
-   </div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Apartman MARINA</h5>
-    <p class="card-text">MARINA apartman pruža pogled na Velebit, planinu koja oduzima dah. Dvokrevetan je, s prostranom kupaonicom te prikladan za parove. Opremljen je svim potrebnim uređajima koji će Vaš boravak učiniti potpunim! </p>
-    <a href="#" class="btn btn-primary">Rezerviraj odmah...</a>
-	</br>
-    </br>
- </div>
-</div>
-</div>
+ <!-- sve iz baze  -->
 
+	<?php 	 
+				
+					$objekt_query="SELECT * FROM apartmani";
 
-<div class="col-md-4">
-   <div class="card shadow" style="width: 28rem;">
-   <div class="inner">
-   <img class="card-img-top" src="soba3.jpg" alt="Apartman 3">
-   </div>
-  <div class="card-body text-center">
-    <h5 class="card-title">Apartman MARIN</h5>
-    <p class="card-text">MARIN apartman pruža pogled na morsku stranu mjesta Vrsi. Dvokrevetan je, prostran, s prostranom kupaonicom i velikom terasom na kojoj se možete osunčati, raditi ljetne koktele ili pak uživati u fjaci!.</p>
-    <a href="#" class="btn btn-primary">Rezerviraj odmah...</a>
-	</br>
-    </br>
-  </div>
-</div>
-</div>
+					$run_result_1 = mysqli_query($db,$objekt_query);
+				
+					while($row_result=mysqli_fetch_array($run_result_1, MYSQLI_ASSOC)){
+					
+						$naziv_apartmana=$row_result['Naziv_apartmana'];
+						$opis=$row_result['Opis'];
+						$slike=$row_result['Slika_apartmani'];
+						
+
+						echo "
+						<div class='col-md-4'>
+							 <div class='card shadow' style='width: 28rem;'>
+							   <div class='inner'>
+							   <img class='card-img-top' src='$slike'>
+							   </div>
+							  <div class='card-body text-center'>
+								<h5 class='card-title'>$naziv_apartmana</h5>
+								<p class='card-text'>$opis</p>
+								<a href='kalendar.php' class='btn btn-primary'>Pogledaj odmah...</a>
+								</br>
+								</br>
+							 </div>
+							</div>
+							</div>
+							";
+					}
+				?>
+
 
 </div>
 </div>

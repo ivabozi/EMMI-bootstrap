@@ -3,10 +3,12 @@
 <html>
 <head>
 <title>EMMI</title>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width", initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="forme_style.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,8 +25,8 @@
     <ul class="nav navbar-nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="apartmani.html">Apartmani</a></li>
-      <li><a href="lifestyle.html">Lifestyle</a></li>
-	  <li><a href="rezervacija.php">Rezervacija</a></li>
+      <li><a href="lifestyle.php">Lifestyle</a></li>
+	  <li><a href="kalendar.php">Rezervacija</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="registracija.php"><span class="glyphicon glyphicon-user"></span> Registracija</a></li>
