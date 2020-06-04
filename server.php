@@ -52,7 +52,7 @@ if (isset($_POST['registracija'])) { //ako je korisnik kliknuo na gumb 'registra
 			$_SESSION['Prezime_user'] = $prezime;	//sesiji će biti dodjeljena vrijednost korisničkog imena dok se preglednik ne zatvori
 			$_SESSION['Mail_user'] = $email;	
 									
-			header('location: rezervacija.php');	  //preusmjeravanje preglednika na index.php nakon uspješne registracije
+			header('location: kalendar.php');	  //preusmjeravanje preglednika na index.php nakon uspješne registracije
 		}
 
 	}
@@ -99,7 +99,7 @@ if (isset($_POST['registracija'])) { //ako je korisnik kliknuo na gumb 'registra
 				$_SESSION['Mail_user'] = $email;
 				$_SESSION['Lozinka_user'] = $password;
 			
-				header('location: rezervacija.php');											//preusmjeravanje preglednika na index.php nakon uspješne registracije
+				header('location: kalendar.php');											//preusmjeravanje preglednika na index.php nakon uspješne registracije
 			}else {
 				array_push($errors, "Pogrešan mail i/ili lozinka");			//obavjest
 			}

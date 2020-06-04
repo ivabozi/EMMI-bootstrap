@@ -102,7 +102,7 @@
 			
 				
 				<br/>
-				<div class="text-center"> <a href="prijava.html">Registriran si? Prijavi se!</a>
+				<div class="text-center"> <a href="prijava.php">Registriran si? Prijavi se!</a>
 			</div>
 				</form>
 		</div>
