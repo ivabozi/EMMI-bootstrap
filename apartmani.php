@@ -27,15 +27,21 @@
       <li ><a href="index.html">Home</a></li>
       <li class="active"><a href="#">Apartmani</a></li>
       <li><a href="lifestyle.php">Lifestyle</a></li>
-	  <li><a href="kalendar.html">Rezervacija</a></li>
+	  <li><a href="kalendar.php">Rezervacija</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="registracija.html"><span class="glyphicon glyphicon-user"></span> Registracija</a></li>
-      <li><a href="prijava.html"><span class="glyphicon glyphicon-log-in"></span> Prijava</a></li>
-	  <li><a href="prijava.html"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
-	      </ul>
+      <li><a href="registracija.php"><span class="glyphicon glyphicon-user"></span> Registracija</a></li>
+      <li><a href="prijava.php"><span class="glyphicon glyphicon-log-in"></span> Prijava</a></li>
+		  <!-- ODJAVA  -->
+	 
+		<?php  if (isset($_SESSION['Mail_user'])) : ?>
+		    <li><a href="prijava.php?logout='1'"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li> 
+		<?php endif ?> 
+	    </ul>
   </div>
 </nav>
+  
+
 
 
 <!-- OVDJE KRECU APARTMANI I TE KARTICE-->
@@ -59,7 +65,7 @@
 						$naziv_apartmana=$row_result['Naziv_apartmana'];
 						$opis=$row_result['Opis'];
 						$slike=$row_result['Slika_apartmani'];
-						
+						$link=$row_result['link'];
 
 						echo "
 						<div class='col-md-4'>
@@ -70,7 +76,7 @@
 							  <div class='card-body text-center'>
 								<h5 class='card-title'>$naziv_apartmana</h5>
 								<p class='card-text'>$opis</p>
-								<a href='kalendar.php' class='btn btn-primary'>Pogledaj odmah...</a>
+								<a href='$link' class='btn btn-primary'>Pogledaj odmah...</a>
 								</br>
 								</br>
 							 </div>

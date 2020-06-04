@@ -112,7 +112,7 @@ if (isset($_POST['registracija'])) { //ako je korisnik kliknuo na gumb 'registra
 ////////////////////////////////
 	
 	if (isset($_POST['rezervacija'])) {
-		 $db = mysqli_connect('localhost', 'root', '', 'ibozic'); //spajanje sa lokalnim serverom
+		$db = mysqli_connect('localhost', 'root', '', 'ibozic'); //spajanje sa lokalnim serverom
 		$ime = mysqli_real_escape_string($db, $_POST['Ime_user']);
 		$prezime = mysqli_real_escape_string($db, $_POST['Prezime_user']);
 		$email = mysqli_real_escape_string($db, $_POST['Mail_user']);
@@ -133,7 +133,6 @@ if (isset($_POST['registracija'])) { //ako je korisnik kliknuo na gumb 'registra
 
 	
 		if (count($errors) == 0) {											
-			//$rand = rand(10000,99999);
 $query = "INSERT INTO rezervacija (ime_usera, prezime_usera, mail_usera, naziv_apartmana, br_odraslih, br_djece, datumOD, datumDO ) 
 					  VALUES('$ime','$prezime','$email','$naziv_apartmana', '$br_odraslih','$br_djece', '$reservation_date_od', '$reservation_date_do')";
 			mysqli_query($db, $query);	
@@ -145,6 +144,25 @@ $query = "INSERT INTO rezervacija (ime_usera, prezime_usera, mail_usera, naziv_a
 					
 			//header('location: prijava.php');
 
+
+		EMAIL:
+
+			$_SESSION['Mail_user'] = $email;	
+			
+			$to=$email;
+			$subject="Rezervacijski kod";
+			$message = $_SESSION['Mail_user'];
+			$message .= ", ";
+			$message .="prilikom dolaska na rezervirani termin morate imati rezervacijski kod. \n";
+			$message .="Vaš rezervacijski kod je: \n";
+			$message .= $_SESSION['reservation_code'];
+			$headers ="From: ivabozi96@gmail.com";
+			$headers .= "MIME-Version: 1.0" . "\r";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+			$message.="$rand";
+			mail($to, $subject, $message, $headers);
+				//header('location: rezervacija.php');
+				
 		}
 		
 	

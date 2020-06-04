@@ -38,6 +38,8 @@ if(isset($_POST['submit'])){
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	
 
  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,7 +63,7 @@ if(isset($_POST['submit'])){
     </div>
     <ul class="nav navbar-nav">
       <li><a href="index.html">Home</a></li>
-      <li><a href="apartmani.html">Apartmani</a></li>
+      <li><a href="apartmani.php">Apartmani</a></li>
       <li><a href="lifestyle.php">Lifestyle</a></li>
 	  <li class="active"><a href="kalendar.php">Rezervacija</a></li>
     </ul>
@@ -74,7 +76,7 @@ if(isset($_POST['submit'])){
 	 
 		<?php  if (isset($_SESSION['Mail_user'])) : ?>
 		    <li><a href="prijava.php?logout='1'"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li> 
-		<?php endif ?> -->
+		<?php endif ?> 
 
 	  
     </ul>
@@ -90,12 +92,16 @@ if(isset($_POST['submit'])){
 						<h3 class="text-center">REZERVACIJA <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr></h3>
 				</div>
 				
-			<hr>
+			
 			
 				<!-- KAD NIJE ISPUNJENO NES OD POLJA  -->
 			 <?php include('errors.php'); ?>	
 				
-				 <?php echo isset($msg)?$msg:''; ?>
+				 <?php echo isset($msg)?$msg:''; ?> <!-- Funkcija isset () provjerava je li varijabla postavljena, što znači da mora biti deklarirana i nije NULL.
+
+														Ova funkcija vraća true ako varijabla postoji, a nije NULL, inače vraća false.
+
+													    Napomena: Ako se isporuči više varijabli, ova će se funkcija vratiti istinom samo ako su postavljene sve varijable. -->
 				<div class="row">
 				 <form action="" method="post" autocomplete="off">
 					<label class="label col-md-4 control-label">Ime</label>
@@ -154,10 +160,14 @@ if(isset($_POST['submit'])){
 						</select>
 					</div>
 				</div>
-	
+				
+	           <div  class="text-center">
 				<button class="btn btn-primary" type="submit" name="submit">Potvrdi rezervaciju</button>
 			<!--	<input type="submit" name="submit"  class="btn btn-primary"> -->
 				<a href="#"><div class="btn btn-warning">Odustani</div></a>
+				</div>
+				</br>
+				</br>
 				</form>
 				
 				

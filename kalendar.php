@@ -41,11 +41,11 @@ function build_calendar($month, $year){
     ///ovo je za slijedeci sadasnji i prethodni mjesec
     $calendar = "<table class='table table-bordered'>";
     $calendar .= "<center><h2>$monthName $year</h2>";
-    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</a> ";
+    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Prethodni mjesec</a> ";
     
-    $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
+    $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Trenutni mjesec</a> ";
     
-    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
+    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Slijedeći mjesec</a></center><br>";
     
     
         
@@ -87,9 +87,9 @@ function build_calendar($month, $year){
 	if($date<date('Y-m-d')){
         $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
       }elseif(in_array($date, $bookings)){
-        $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Already Booked</button>";
+        $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Rezervirano</button>";
       }else{
-        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='rezervacija.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";//upitnik pa nešto znači da je sve iza upitnika get zahtjev
+        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='rezervacija.php?date=".$date."' class='btn btn-success btn-xs'>Rezerviraj</a>";//upitnik pa nešto znači da je sve iza upitnika get zahtjev
          }
 		
 		$calendar.="</td>";
@@ -120,111 +120,35 @@ function build_calendar($month, $year){
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="kalendarStil.css">
 	<!--<link rel="stylesheet" type="text/css" href="kalendarStil.css">-->
-	<style>
-	@media only screen and (max-width: 760px),
-        (min-device-width: 802px) and (max-device-width: 1020px) {
 
-            /* Force table to not be like tables anymore */
-            table, thead, tbody, th, td, tr {
-                display: block;
-
-            }
-            
-            
-
-            .empty {
-                display: none;
-            }
-
-            /* Hide table headers (but not display: none;, for accessibility) */
-            th {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-
-            tr {
-                border: 1px solid #ccc;
-            }
-
-            td {
-                /* Behave  like a "row" */
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding-left: 50%;
-            }
-
-
-
-            /*
-		Label the data
-		*/
-            td:nth-of-type(1):before {
-                content: "Sunday";
-            }
-            td:nth-of-type(2):before {
-                content: "Monday";
-            }
-            td:nth-of-type(3):before {
-                content: "Tuesday";
-            }
-            td:nth-of-type(4):before {
-                content: "Wednesday";
-            }
-            td:nth-of-type(5):before {
-                content: "Thursday";
-            }
-            td:nth-of-type(6):before {
-                content: "Friday";
-            }
-            td:nth-of-type(7):before {
-                content: "Saturday";
-            }
-
-
-        }
-
-        /* Smartphones (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-            body {
-                padding: 0;
-                margin: 0;
-            }
-        }
-
-        /* iPads (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 802px) and (max-device-width: 1020px) {
-            body {
-                width: 495px;
-            }
-        }
-
-        @media (min-width:641px) {
-            table {
-                table-layout: fixed;
-            }
-            td {
-                width: 33%;
-            }
-        }
-        
-        .row{
-            margin-top: 20px;
-        }
-        
-        .today{
-            background:yellow;
-        }
-        
-        
-        
-	</style>
 </head>
 <body>
+
+<!-- NAVIGACIJA  -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">EMMI</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="apartmani.php">Apartmani</a></li>
+      <li><a href="lifestyle.php">Lifestyle</a></li>
+	  <li class="active"><a href="#">Rezervacija</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="registracija.php"><span class="glyphicon glyphicon-user"></span> Registracija</a></li>
+      <li><a href="prijava.php"><span class="glyphicon glyphicon-log-in"></span> Prijava</a></li>
+	  <!-- ODJAVA -->
+	  <?php  if (isset($_SESSION['Mail_user'])) : ?>
+		    <li><a href="prijava.php?logout='1'"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li> 
+		<?php endif ?>
+    </ul>
+  </div>
+</nav>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">

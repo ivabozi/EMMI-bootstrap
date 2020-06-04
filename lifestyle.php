@@ -24,17 +24,27 @@
     <ul class="nav navbar-nav">
 	
       <li ><a href="index.html">Home</a></li>
-      <li ><a href="apartmani.html">Apartmani</a></li>
+      <li ><a href="apartmani.php">Apartmani</a></li>
       <li class="active"><a href="#">Lifestyle</a></li>
 	  <li><a href="kalendar.php">Rezervacija</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="registracija.php"><span class="glyphicon glyphicon-user"></span> Registracija</a></li>
       <li><a href="prijava.php"><span class="glyphicon glyphicon-log-in"></span> Prijava</a></li>
-	  <li><a href="prijava.php"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
-	      </ul>
+	  <!-- ODJAVA  -->
+	 
+		<?php  if (isset($_SESSION['Mail_user'])) : ?>
+		    <li><a href="prijava.php?logout='1'"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li> 
+		<?php endif ?>
+	  
+	  
+	    </ul>
   </div>
 </nav>
+
+  
+
+
 
  <h1 class="text-center"> RESTORANI I BAROVI U ZADRU </h1>
  </br>
