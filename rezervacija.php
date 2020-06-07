@@ -3,7 +3,8 @@
 	<?php include('server.php') ?> <!-- uzima sav kod koji se nalazi u php datoteci i koristi je kao dio koda datoteke
 											u koju je "pozvana"; spajanje_baza.php u sebi sadrži kod za spajanje sa serverom i bazom 
 											podataka u kojoj se nalaze korisnici web aplikacije -->
-																					
+											
+																															
 <?php
 if(isset($_GET['date'])){
     $date = $_GET['date'];
@@ -24,6 +25,24 @@ if(isset($_POST['submit'])){
     $stmt->close();
     $mysqli->close();
 }
+
+
+    // Generating a random number 
+    $randomNumber = rand(); 
+   
+      
+    // Generating a random number in a  
+    // Specified range. 
+    $randomNumber = rand(100,10000); 
+ 
+
+			$to=$email;
+			$subject="Rezervacijski kod";
+			$message ="Prilikom dolaska na rezervirani termin morate imati rezervacijski kod. \n";
+			$message ="Vaš rezervacijski kod je:" $randomNumber "\n";
+			$headers ="From: ivabozi96@gmail.com";
+			mail($to, $subject, $message, $headers);
+		
 
 ?>
 

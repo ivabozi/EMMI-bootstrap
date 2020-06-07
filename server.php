@@ -145,27 +145,7 @@ $query = "INSERT INTO rezervacija (ime_usera, prezime_usera, mail_usera, naziv_a
 			//header('location: prijava.php');
 
 
-		EMAIL:
-
-			$_SESSION['Mail_user'] = $email;	
-			
-			$to=$email;
-			$subject="Rezervacijski kod";
-			$message = $_SESSION['Mail_user'];
-			$message .= ", ";
-			$message .="prilikom dolaska na rezervirani termin morate imati rezervacijski kod. \n";
-			$message .="Vaš rezervacijski kod je: \n";
-			$message .= $_SESSION['reservation_code'];
-			$headers ="From: ivabozi96@gmail.com";
-			$headers .= "MIME-Version: 1.0" . "\r";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-			$message.="$rand";
-			mail($to, $subject, $message, $headers);
-				//header('location: rezervacija.php');
-				
 		}
-		
-	
 	}
 
 
