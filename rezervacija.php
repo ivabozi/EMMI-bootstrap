@@ -39,9 +39,11 @@ if(isset($_POST['submit'])){
 			$to=$email;
 			$subject="Rezervacijski kod";
 			$message ="Prilikom dolaska na rezervirani termin morate imati rezervacijski kod. \n";
-			$message ="Vaš rezervacijski kod je:" $randomNumber "\n";
-			$headers ="From: ivabozi96@gmail.com";
-			mail($to, $subject, $message, $headers);
+			$message .="Vaš rezervacijski kod je:\n";
+			$message .= $randomNumber;
+			//$message = print_r($randomNumber); 
+			$header ="From: ivabozi96@gmail.com";
+			mail($to, $subject, $message, $header);
 		
 
 ?>
