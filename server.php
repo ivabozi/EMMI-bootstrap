@@ -132,10 +132,10 @@ if (isset($_POST['registracija'])) { //ako je korisnik kliknuo na gumb 'registra
 		if (empty($br_djece)) { array_push($errors, "Unesi broj djece"); }
 
 	
-		if (count($errors) == 0) {											
-$query = "INSERT INTO rezervacija (ime_usera, prezime_usera, mail_usera, naziv_apartmana, br_odraslih, br_djece, datumOD, datumDO ) 
-					  VALUES('$ime','$prezime','$email','$naziv_apartmana', '$br_odraslih','$br_djece', '$reservation_date_od', '$reservation_date_do')";
-			mysqli_query($db, $query);	
+	//	if (count($errors) == 0) {											
+//$query = "INSERT INTO rezervacija (ime_usera, prezime_usera, mail_usera, naziv_apartmana, br_odraslih, br_djece, datumOD, datumDO ) 
+					//  VALUES('$ime','$prezime','$email','$naziv_apartmana', '$br_odraslih','$br_djece', '$reservation_date_od', '$reservation_date_do')";
+			//mysqli_query($db, $query);	
 
 
 					
@@ -145,7 +145,7 @@ $query = "INSERT INTO rezervacija (ime_usera, prezime_usera, mail_usera, naziv_a
 			//header('location: prijava.php');
 
 
-		}
+		//}
 	}
 
 
